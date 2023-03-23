@@ -1,6 +1,6 @@
 ## redis 학습용 nodejs
 
-## 구동순서
+### nodejs 구동순서
 
 docker 를 설치한다.
 
@@ -36,23 +36,29 @@ $ yarn start
 $ npm start
 ```
 
-## Dockerfile 로 Image 빌드하기
+## Dockerfile
+
+### Dockerfile 로 Image 빌드하기
 
 ```shell
 $ docker build -t { IMAGE_NAME } .
 ```
 
-## 구동하기
+### Image 구동하기
 
 ```shell
 $  docker run --name { CONTAINER_NAME } -d -p 3000:3000 { IMAGE_NAME }
 ```
 
-## 컨테이너에 접속
+### 컨테이너에 접속
 
 ```shell
 $ docker exec -t -i {CONTAINER_ID} /bin/bash
 ```
+
+## docker-compose
+
+...
 
 ## 참고
 

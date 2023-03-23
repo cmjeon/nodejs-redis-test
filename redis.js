@@ -1,5 +1,6 @@
 const express = require('express')
 const redis = require('redis')
+const REDIS_HOST = process.env.REDIS_HOST || 'localhost'
 
 const router = express.Router()
 
@@ -9,6 +10,7 @@ const redisClient = redis.createClient({
    * ex) url: 'redis://alice:foobared@awesome.redis.server:6380/3'
    * url 없으면 localhost:6379 로 기본연결
    */
+  url: `redis://${REDIS_HOST}:6379`,
   legacyMode: true,
 })
 

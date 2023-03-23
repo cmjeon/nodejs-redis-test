@@ -56,9 +56,23 @@ $  docker run --name { CONTAINER_NAME } -d -p 3000:3000 { IMAGE_NAME }
 $ docker exec -t -i {CONTAINER_ID} /bin/bash
 ```
 
-## docker-compose
+## 두 컨테이너간 통신하기
 
-...
+### docker network 만들기
+
+```shell
+$ docker network create my-network
+```
+
+### 연결할 컨테이너를 구동할 때 --network my-network 옵션 추가
+
+```shell
+# redis
+$ docker run --name myRedis -d -p 6379:6379 --network my-network redis
+
+# nodejs
+$ docker run --name myNode -d -p 3000:3000 --network my-network my-node
+```
 
 ## 참고
 

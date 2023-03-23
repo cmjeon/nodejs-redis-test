@@ -8,14 +8,17 @@ LABEL author="cmjeon"
 WORKDIR /app
 
 # 앱 종속성 설치
-COPY package.json ./
-# 앱 소스 추가
-COPY ./ ./
+COPY package*.json ./
 
-RUN yarn install
+ENV REDIS_HOST=myRedis
+
+RUN npm install
+
+# 앱 소스 추가
+COPY . .
 
 # 호스트와 통신할 포트
 EXPOSE 3000
 
 # 컨테이너 실행 시 실행될 명령어
-CMD [ "yarn", "start" ]
+CMD [ "node", "app.js" ]
